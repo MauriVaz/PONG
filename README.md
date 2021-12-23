@@ -2,7 +2,7 @@
 
 Link al videojuego:
 
-<img src="pong.jpg">
+<img src="Pong.png">
 
 ### Descripción del proyecto
 
@@ -14,4 +14,34 @@ Otra idea es que se puedan seleccionar personajes para poner como barra del juga
 
 ### Instalación y ejecución
 
-Para instalar el juego se realizará un clone de repositorio.
+Para instalar el juego se realizará un clone de este repositorio con el siguiente comando:
+
+```
+git clone git@github.com:MauriVaz/PONG.git
+```
+
+Una vez descargado el repositorio, hay que acceder a su carpeta con el siguiente comando el
+
+```
+cd PONG
+```
+
+Para acabar hace falta instalar las dependencias del proyecto y ejecutarlo para eso será necesario ejecutar los siguientes comandos
+
+```
+npm install
+npm run dev
+```
+
+### Librerías a utilizar
+
+Utilizaremos librerías para este proyecto:
+
+- Parcel: Para levantar un servidor que ejecute nuestro proyecto.
+- Lodash: Para la utilización de números random.
+- Eslint: Para seguir unas pautas de código y que este sea uniforme.
+- Typescript: Para que se pueda codificar en este lenguaje
+
+### Compilación
+
+Como el proyecto se va a desarrollar en lenguaje Typescript, para que este se pueda ejecutar hace falta compilarlo
