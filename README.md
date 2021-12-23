@@ -51,4 +51,6 @@ npm run dev
 - El juego tiene que mantenerse a una tasa de frames de 60 frames por segundo.
 - Tiene que ser un juego interactivo es decir, el o los jugadores tienen que presionar teclas en su equipo para que los actores del juego ejecuten una o varias acciones.
 
-##
+## Inspiración del proyecto
+
+La idea de este proyecto nació debido a que encontré un vídeo en YouTube, de un videojuego de la página web de Cartoon Network, que jugaba cuando era un zagal en la cúal existía una sección dedicada a videojuegos de las series animadas que ellos producían.
