@@ -15,5 +15,20 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "linebreak-style":"off",
+        "no-var":"off",
+        "no-unused-vars":"off",
+        "eol-last":"off",
+        "semi":"off",
+        "no-console": "off",
+        "import/no-unresolved":"off",
+        "import/extensions": "off",
+        "class-methods-use-this":"off",
+        "import/prefer-default-export":"off",
+        "lines-between-class-members":"off",
+        "prefer-const":"off",
+        "vars-on-top":"off",
+        "prefer-destructuring":"off",
+        "default-case":"off"
     }
 }

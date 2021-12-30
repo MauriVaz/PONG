@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/MauriVaz/PONG#readme",
   "dependencies": {
+    "@types/typescript": "^2.0.0",
     "parcel": "^2.0.1",
     "typescript": "^4.5.4"
   },
