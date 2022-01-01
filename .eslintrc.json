@@ -29,6 +29,9 @@
         "prefer-const":"off",
         "vars-on-top":"off",
         "prefer-destructuring":"off",
-        "default-case":"off"
+        "default-case":"off",
+        "import/no-mutable-exports":"off",
+        "no-shadow":"off",
+        "quotes":"off"
     }
 }

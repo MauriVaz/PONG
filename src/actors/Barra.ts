@@ -1,52 +1,44 @@
 import { Actor, IActor } from './Actor';
 import { Point } from '../types/Point';
+import { KeyboardMap } from "../utils/keyboardMap";
 
 export class Barra extends Actor implements IActor {
-  barraSize: number;
   origin: Point;
   color: string;
   speed: Point;
+  position: Point;
+  keyboardMap: KeyboardMap;
 
-  constructor(initialPos: Point, color = 'grey', initialSpeed = 0) {
+  constructor(initialPos: Point, keyboardMap: KeyboardMap) {
     super(initialPos);
-    this.barraSize = 30;
+    this.keyboardMap = keyboardMap;
     this.origin = { x: initialPos.x, y: initialPos.y };
-    this.color = color;
+    this.position = { x: initialPos.x, y: initialPos.y };
+    this.color = 'white';
     this.speed = { x: initialPos.x, y: initialPos.y };
   }
-  keyboard_event(key: string) {
+  update(delta: number) {
+  // Set X position
+    let newPosY = this.origin.y + this.speed.y;
+    if (newPosY < 480 && newPosY >= 0) {
+      this.origin.x = newPosY;
+    }
+  }
+  keyboard_event_down(key: string) {
     switch (key) {
-      case 'ArrowRight':
-        console.log('down');
-        this.speed.y += 10;
+      case 'ArrowUp':
+        this.origin.y -= 10;
         break;
-      case 'ArrowLeft':
-        console.log('up');
-        this.speed.y += 10;
+      case 'ArrowDown':
+        this.origin.y += 10;
         break;
     }
   }
   draw(delta: number, ctx: CanvasRenderingContext2D) {
-    let origin = this.origin;
-    let height = 0;
-    if (this.position.y < 0) {
-      this.position.y = 1;
-    } else if (this.position.y > 720) {
-      this.position.y = 719;
-    }
-    ctx.strokeStyle = 'grey';
-    ctx.lineWidth = 4;
-    ctx.save();
-    ctx.translate(origin.x, origin.y);
     ctx.beginPath();
-    ctx.fillStyle = 'green';
-    ctx.fillRect(30, 30, 30, 120);
-    ctx.font = '18px Arial';
-    ctx.fillStyle = this.color;
-    ctx.lineTo(0, 0);
+    ctx.fillStyle = 'white';
+    ctx.fillRect(this.origin.x, this.origin.y, 20, 120);
     ctx.closePath();
-    ctx.stroke();
-    ctx.fill();
-    ctx.restore();
+    console.log(`Position: ${this.origin.y}`);
   }
 }
