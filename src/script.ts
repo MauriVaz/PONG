@@ -9,10 +9,10 @@ window.onload = () => {
   var canvas = document.getElementById('canvas') as HTMLCanvasElement;
   var ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
   //  Creamos los actores
-  let barra1 = new Barra({ x: 30, y: 30 }, MAP_A);
-  let barra2 = new Barra({ x: 30, y: 270 }, MAP_B);
+  let barra1 = new Barra({ x: 10, y: 240 }, MAP_B, 'white');
+  let barra2 = new Barra({ x: 670, y: 240 }, MAP_A, 'white');
   let fps = new FPSViewer({ x: 70, y: 30 });
-  let ball = new Ball({ x: 360, y: 240 });
+  let ball = new Ball({ x: 360, y: 240 }, 'white');
   let marcador = new Marcador({ x: 240, y: 30 });
   let actors: Array<IActor> = [fps, barra1, barra2, ball, marcador];
   let lastFrame = 0;
@@ -35,6 +35,13 @@ window.onload = () => {
     actors.forEach((actor) => {
       if (actor.keyboard_event_down) {
         actor.keyboard_event_down(e.key);
+      }
+    });
+  });
+  document.body.addEventListener("keyup", (e) => {
+    actors.forEach((actor) => {
+      if (actor.keyboard_event_up) {
+        actor.keyboard_event_up(e.key);
       }
     });
   });

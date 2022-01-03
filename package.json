@@ -4,9 +4,11 @@
   "description": "Link al videojuego:",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html",
-    "build": "tsc"
+    "dev": "clear && yarn run clear-cache && parcel index.html",
+    "clear-cache": "rimraf dist .parcel-cache",
+    "build": "yarn run clean && yarn run ghbuild",
+    "ghbuild": "parcel build --dist0dir docs --public-url /PONG index.html",
+    "clean": "rimraf docs dist"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   "dependencies": {
     "@types/typescript": "^2.0.0",
     "parcel": "^2.0.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.5.4"
   },
   "devDependencies": {

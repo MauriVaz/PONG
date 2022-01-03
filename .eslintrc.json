@@ -32,6 +32,7 @@
         "default-case":"off",
         "import/no-mutable-exports":"off",
         "no-shadow":"off",
-        "quotes":"off"
+        "quotes":"off",
+        "eqeqeq":"off"
     }
 }
