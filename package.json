@@ -1,13 +1,10 @@
 {
   "name": "pong",
   "version": "1.0.0",
-  "description": "Link al videojuego:",
-  "main": "index.js",
   "scripts": {
-    "dev": "clear && yarn run clear-cache && parcel index.html",
-    "clear-cache": "rimraf dist .parcel-cache",
-    "build": "yarn run clean && yarn run ghbuild",
-    "ghbuild": "parcel build --dist0dir docs --public-url /PONG index.html",
+    "dev": "parcel index.html",
+    "build": "npm run clean && npm run ghbuild",
+    "ghbuild": "parcel build --dist-dir docs --public-url /PONG index.html",
     "clean": "rimraf docs dist"
   },
   "repository": {
