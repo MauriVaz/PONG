@@ -1,6 +1,7 @@
 import { Actor } from './Actor';
 import { Point } from '../types/Point';
 import { checkLimits } from '../utils/checkLimits';
+import { Marcador } from '../actors/Marcador'
 
 export class Ball extends Actor {
   speed: Point;
@@ -21,24 +22,23 @@ export class Ball extends Actor {
     this.color = color;
   }
   update(delta: number) {
+    // NOTE: Evita que la pelota salga del Canvas
     let newPos = {
-      x: this.origin.x - 5 - this.speed.x * (delta / 720),
+      x: this.origin.x - 1.5 - this.speed.x * (delta / 720),
       y: this.origin.y - 1.5 - this.speed.y * (delta / 720),
     }
-    console.log(`PositionX: ${newPos.x}, PositionY: ${newPos.y}`);
     if (checkLimits(newPos, this.ballHeight, this.ballWidth, 720, 480)) {
       this.origin = newPos;
-    } else {
-      newPos = {
-        x: this.origin.x + 1.5 + this.speed.x * (delta / 720),
-        y: this.origin.y + 1.5 + this.speed.y * (delta / 720),
-      }
+    }
+    // NOTE: Intento de rebote con la pared dearriba
+    if (this.origin.y <= 2) {
+      this.origin.x = this.origin.x + 1.5 + this.speed.y * (delta / 720);
+      this.origin.y = this.origin.y + 1.5 + this.speed.y * (delta / 720);
     }
   }
   keyboard_event() {}
   draw(delta: number, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = this.color;
     ctx.fillRect(this.origin.x, this.origin.y, 20, 20);
-    ctx.fillText(`PositionX: ${this.origin.x}, ${this.origin.y}`, this.position.x, this.position.y);
   }
 }

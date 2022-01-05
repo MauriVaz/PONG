@@ -24,11 +24,11 @@ export class Barra extends Actor implements IActor {
   }
   update(delta: number) {
     let newPos = {
-      x: this.origin.x,
-      y: this.origin.y,
+      x: this.origin.x + 10,
+      y: this.origin.y + 10,
     }
-    if (this.position.y < 480 || this.position.y > 0) {
-      this.origin = newPos;
+    if (checkLimits(newPos, this.barraHeight, this.barraWidth, 720, 480)) {
+      this.position = newPos;
     }
   }
   keyboard_event_up(key: string) {
@@ -44,6 +44,5 @@ export class Barra extends Actor implements IActor {
   draw(delta: number, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = this.color;
     ctx.fillRect(this.origin.x, this.origin.y, this.barraWidth, this.barraHeight);
-    ctx.fillText(`PositionX: ${this.position.x}, PositionY: ${this.origin.y}`, this.position.x, this.position.y)
   }
 }
