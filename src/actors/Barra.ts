@@ -25,9 +25,9 @@ export class Barra extends Actor implements IActor {
   update(delta: number) {
     let newPos = {
       x: this.origin.x,
-      y: this.origin.y + 10,
+      y: this.origin.y,
     }
-    if (this.position.y < 480) {
+    if (this.position.y < 480 || this.position.y > 0) {
       this.origin = newPos;
     }
   }
