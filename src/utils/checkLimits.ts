@@ -1,10 +1,10 @@
-import { Point } from '../types/Point';
+import { Point } from "../types/Point";
 
-export const checkLimits = (position: Point) => {
+export const checkLimits = (position: Point, actorHeight :number, actorWidth :number, canvasWidth:number, canvasHeight:number) => {
   if (
-    position.x < 480
+    position.x <= canvasWidth - actorWidth
     && position.x > 0
-    && position.y < 720
+    && position.y <= canvasHeight - actorHeight
     && position.y > 0) {
     return true;
   }

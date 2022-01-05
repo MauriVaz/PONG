@@ -33,6 +33,7 @@
         "import/no-mutable-exports":"off",
         "no-shadow":"off",
         "quotes":"off",
-        "eqeqeq":"off"
+        "eqeqeq":"off",
+        "max-len":"off"
     }
 }

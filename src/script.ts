@@ -9,10 +9,10 @@ window.onload = () => {
   var canvas = document.getElementById('canvas') as HTMLCanvasElement;
   var ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
   //  Creamos los actores
-  let barra1 = new Barra({ x: 10, y: 240 }, MAP_B, 'white');
-  let barra2 = new Barra({ x: 670, y: 240 }, MAP_A, 'white');
+  let barra1 = new Barra({ x: 10, y: 180 }, MAP_B, 'white');
+  let barra2 = new Barra({ x: 690, y: 180 }, MAP_A, 'white');
   let fps = new FPSViewer({ x: 70, y: 30 });
-  let ball = new Ball({ x: 360, y: 240 }, 'white');
+  let ball = new Ball({ x: 350, y: 230 }, 'white');
   let marcador = new Marcador({ x: 240, y: 30 });
   let actors: Array<IActor> = [fps, barra1, barra2, ball, marcador];
   let lastFrame = 0;

@@ -1,7 +1,7 @@
 import { Actor, IActor } from './Actor';
 import { Point } from '../types/Point';
 import { KeyboardMap, Carkey } from "../utils/keyboardMap";
-import { checkLimits } from "../utils/checkLimits";
+import { checkLimits } from '../utils/checkLimits';
 
 export class Barra extends Actor implements IActor {
   origin: Point;
@@ -23,12 +23,12 @@ export class Barra extends Actor implements IActor {
     this.barraHeight = 120;
   }
   update(delta: number) {
-    let newPos: Point = {
-      x: this.position.x,
-      y: this.position.y,
-    };
-    if (checkLimits(newPos)) {
-      this.position = newPos;
+    let newPos = {
+      x: this.origin.x,
+      y: this.origin.y + this.speed.y * (delta / 720),
+    }
+    if (checkLimits(newPos, this.barraHeight, this.barraWidth, 720, 480)) {
+      this.origin = newPos;
     }
   }
   keyboard_event_up(key: string) {
@@ -44,5 +44,6 @@ export class Barra extends Actor implements IActor {
   draw(delta: number, ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = this.color;
     ctx.fillRect(this.origin.x, this.origin.y, this.barraWidth, this.barraHeight);
+    ctx.fillText(`PositionX: ${this.position.x}, PositionY: ${this.origin.y}`, this.position.x, this.position.y)
   }
 }
