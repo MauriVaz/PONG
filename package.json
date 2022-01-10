@@ -2,10 +2,10 @@
   "name": "pong",
   "version": "1.0.0",
   "scripts": {
-    "dev": "clear && parcel index.html",
-    "build": "npm run clear-cache && npm run ghbuild",
-    "ghbuild": "parcel build --dist-dir docs --public-url ./ index.html",
-    "clean": "rimraf docs dist && rimraf dist && rimraf .parcel-cache"
+      "dev": "parcel index.html",
+      "build": "yarn run clean && yarn run ghbuild",
+      "ghbuild": "parcel build --dist-dir docs --public-url /dungeon index.html",
+      "clean": "rimraf docs dist"
   },
   "repository": {
     "type": "git",
