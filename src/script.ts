@@ -5,7 +5,7 @@ import { Ball } from './actors/Ball';
 import { Marcador } from './actors/Marcador';
 import { MAP_A, MAP_B } from './utils/keyboardMap';
 import { Background } from './actors/background'
-import { state, createGameState } from './state/GameState';
+import { createGameState } from './state/GameState';
 
 window.onload = () => {
   var canvas = document.getElementById('canvas') as HTMLCanvasElement;
