@@ -5,7 +5,6 @@ import { Ball } from './actors/Ball';
 import { Marcador } from './actors/Marcador';
 import { MAP_A, MAP_B } from './utils/keyboardMap';
 import { Background } from './actors/background'
-import { createGameState } from './state/GameState';
 
 window.onload = () => {
   var canvas = document.getElementById('canvas') as HTMLCanvasElement;
@@ -18,7 +17,6 @@ window.onload = () => {
   let background = new Background({ x: 0, y: 0 });
   let fps = new FPSViewer({ x: 20, y: 20 });
   let marcador = new Marcador({ x: 240, y: 30 });
-  createGameState(barra1, barra2, ball, marcador, background, fps);
   let actors: Array<IActor> = [background, fps, ...barra, marcador, ball];
   let lastFrame = 0;
   const render = (time: number) => {
