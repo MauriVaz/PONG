@@ -2,10 +2,10 @@
   "name": "pong",
   "version": "1.0.0",
   "scripts": {
-    "dev": "parcel index.html",
-    "build": "npm run clean && npm run ghbuild",
+    "dev": "clear && npm run clear-cache && parcel index.html",
+    "build": "npm run clear-cache && npm run ghbuild",
     "ghbuild": "parcel build --dist-dir docs --public-url /PONG index.html",
-    "clean": "rimraf docs dist"
+    "clean": "rimraf docs dist && rimraf dist && rimraf .parcel-cache"
   },
   "repository": {
     "type": "git",
