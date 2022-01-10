@@ -29,7 +29,6 @@ class GameState {
     if (this.background.position.y < 10) {
       this.marcador.p2 += 1;
     }
-    console.log(this.marcador.p2)
   }
 }
 export let state: GameState;
