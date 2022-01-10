@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-expressions */
 import { Actor, IActor } from './Actor';
 import { Point } from '../types/Point';
 import { KeyboardMap, Carkey } from "../utils/keyboardMap";
 import { checkLimits } from '../utils/checkLimits';
-import { canvasWidth, canvasHeight } from '../utils/constantes'
+import { Ball } from './Ball';
+import { distance } from '../utils/distance';
 
 export class Barra extends Actor implements IActor {
   origin: Point;
@@ -12,23 +14,27 @@ export class Barra extends Actor implements IActor {
   keyboardMap: KeyboardMap;
   barraWidth: number;
   barraHeight: number;
-
   constructor(initialPos: Point, keyboardMap: KeyboardMap, color:string) {
     super(initialPos);
     this.keyboardMap = keyboardMap;
     this.origin = { x: initialPos.x, y: initialPos.y };
     this.position = { x: initialPos.x, y: initialPos.y };
-    this.color = color;
+    if (color.length === 0) {
+      this.color = 'white';
+    } else {
+      this.color = color;
+    }
     this.speed = { x: initialPos.x, y: initialPos.y };
     this.barraWidth = 20;
     this.barraHeight = 120;
   }
   update(delta: number) {
+    let distance;
     let newPos = {
       x: this.origin.x,
       y: this.origin.y,
     }
-    if (!checkLimits(newPos, this.barraHeight, this.barraWidth, canvasWidth, canvasHeight)) {
+    if (!checkLimits(newPos, this.barraHeight, this.barraWidth)) {
       this.origin.x = newPos.x;
       if (this.origin.y < 0) {
         this.origin.y = newPos.y + 10;

@@ -1,0 +1,1 @@
+{"mappings":"AAAA,OAGA,aAAA,CADA,WAAA,CADA,SAAA,CAGA,WACA","sources":["public/style.css"],"sourcesContent":["canvas {\r\n  padding: 0;\r\n  margin: auto;\r\n  display: block;\r\n  width: 800px;\r\n}\r\n"],"names":[],"version":3,"file":"index.f922bf8e.css.map"}

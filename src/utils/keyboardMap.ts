@@ -13,5 +13,7 @@ export let MAP_A = {
 };
 export let MAP_B = {
   a: Carkey.LEFT,
+  A: Carkey.LEFT,
   d: Carkey.RIGHT,
+  D: Carkey.RIGHT,
 };

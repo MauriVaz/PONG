@@ -4,17 +4,22 @@ import { FPSViewer } from './actors/FPSViewer';
 import { Ball } from './actors/Ball';
 import { Marcador } from './actors/Marcador';
 import { MAP_A, MAP_B } from './utils/keyboardMap';
+import { Background } from './actors/background'
+import { state, createGameState } from './state/GameState';
 
 window.onload = () => {
   var canvas = document.getElementById('canvas') as HTMLCanvasElement;
   var ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
   //  Creamos los actores
+  let ball = new Ball({ x: 350, y: 230 });
   let barra1 = new Barra({ x: 10, y: 180 }, MAP_B, 'white');
   let barra2 = new Barra({ x: 690, y: 180 }, MAP_A, 'white');
-  let fps = new FPSViewer({ x: 70, y: 30 });
-  let ball = new Ball({ x: 350, y: 230 }, 'white');
+  let barra = [barra1, barra2];
+  let background = new Background({ x: 0, y: 0 });
+  let fps = new FPSViewer({ x: 20, y: 20 });
   let marcador = new Marcador({ x: 240, y: 30 });
-  let actors: Array<IActor> = [fps, barra1, barra2, ball, marcador];
+  createGameState(barra1, barra2, ball, marcador, background, fps);
+  let actors: Array<IActor> = [background, fps, ...barra, marcador, ball];
   let lastFrame = 0;
   const render = (time: number) => {
     let delta = (time - lastFrame) / 1000;
