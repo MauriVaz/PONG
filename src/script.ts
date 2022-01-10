@@ -12,7 +12,7 @@ window.onload = () => {
   var ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
   //  Creamos los actores
   let ball = new Ball({ x: 350, y: 230 });
-  let barra1 = new Barra({ x: 10, y: 180 }, MAP_B, 'white');
+  let barra1 = new Barra({ x: 10, y: 180 }, MAP_B, '');
   let barra2 = new Barra({ x: 690, y: 180 }, MAP_A, 'white');
   let barra = [barra1, barra2];
   let background = new Background({ x: 0, y: 0 });
