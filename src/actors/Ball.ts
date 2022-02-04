@@ -1,16 +1,16 @@
-import _ from 'lodash';
-import { Actor } from './Actor';
-import { Point } from '../types/Point';
-import { angleToRad } from '../utils/angleToRad';
-import { canvasWidth, canvasHeight } from '../utils/constantes';
-import { checkLimits } from '../utils/checkLimits'
-import { Barra } from '../actors/Barra'
-import { Marcador } from '../actors/Marcador'
-import { distance } from '../utils/distance'
+import _ from "lodash";
+import { Actor } from "./Actor";
+import { Point } from "../types/Point";
+import { angleToRad } from "../utils/angleToRad";
+import { canvasWidth, canvasHeight } from "../utils/constantes";
+import { checkLimits } from "../utils/checkLimits";
+import { Barra } from "../actors/Barra";
+import { Marcador } from "../actors/Marcador";
+import { distance } from "../utils/distance";
 
-const basketBall = require("../assets/bolas/basket.png")
+const basketBall = require("../assets/bolas/basket.png");
 const futBall = require("../assets/bolas/futbol.png");
-const tenisBall = require("../assets/bolas/tenis.png")
+const tenisBall = require("../assets/bolas/tenis.png");
 
 export class Ball extends Actor {
   speed: Point;
@@ -45,12 +45,12 @@ export class Ball extends Actor {
   }
 
   update(delta: number) {
-    let marcador = new Marcador({ x: this.origin.x, y: this.origin.y })
+    let marcador = new Marcador({ x: this.origin.x, y: this.origin.y });
     // NOTE: La velocidad depende del ángulo
     let newPos = {
       x: this.origin.x + angleToRad(this.angleX),
       y: this.origin.y + angleToRad(this.angleY),
-    }
+    };
     this.origin = newPos;
     if (!checkLimits(newPos, this.ballHeight, this.ballWidth)) {
       if (newPos.x > canvasWidth - this.ballHeight || newPos.x < 0) {
