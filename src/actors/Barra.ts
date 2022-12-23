@@ -19,11 +19,7 @@ export class Barra extends Actor implements IActor {
     this.keyboardMap = keyboardMap;
     this.origin = { x: initialPos.x, y: initialPos.y };
     this.position = { x: initialPos.x, y: initialPos.y };
-    if (color.length === 0) {
-      this.color = 'white';
-    } else {
-      this.color = color;
-    }
+    this.color = color;
     this.speed = { x: initialPos.x, y: initialPos.y };
     this.barraWidth = 20;
     this.barraHeight = 120;
