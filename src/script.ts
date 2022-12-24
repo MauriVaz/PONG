@@ -36,14 +36,14 @@ window.onload = () => {
   };
 
   window.requestAnimationFrame(render);
-  document.body.addEventListener('keydown', (e) => {
+  document.body.addEventListener('keypress', (e) => {
     actors.forEach((actor) => {
       if (actor.keyboard_event_down) {
         actor.keyboard_event_down(e.key);
       }
     });
   });
-  document.body.addEventListener("keyup", (e) => {
+  document.body.addEventListener('keydown', (e) => {
     actors.forEach((actor) => {
       if (actor.keyboard_event_up) {
         actor.keyboard_event_up(e.key);
