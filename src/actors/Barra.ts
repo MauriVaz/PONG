@@ -3,8 +3,7 @@ import { Actor, IActor } from './Actor';
 import { Point } from '../types/Point';
 import { KeyboardMap, Carkey } from "../utils/keyboardMap";
 import { checkLimits } from '../utils/checkLimits';
-import { Ball } from './Ball';
-import { distance } from '../utils/distance';
+import { barraHeight, barraWidth } from '../utils/constantes';
 
 export class Barra extends Actor implements IActor {
   origin: Point;
@@ -21,8 +20,8 @@ export class Barra extends Actor implements IActor {
     this.position = { x: initialPos.x, y: initialPos.y };
     this.color = color;
     this.speed = { x: initialPos.x, y: initialPos.y };
-    this.barraWidth = 20;
-    this.barraHeight = 120;
+    this.barraWidth = barraWidth;
+    this.barraHeight = barraHeight;
   }
   update(delta: number) {
     let distance;

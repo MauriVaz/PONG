@@ -37,7 +37,6 @@ window.onload = () => {
 
   window.requestAnimationFrame(render);
   document.body.addEventListener('keydown', (e) => {
-    console.log("Prueba 1")
     actors.forEach((actor) => {
       if (actor.keyboard_event_down) {
         actor.keyboard_event_down(e.key);
@@ -45,7 +44,6 @@ window.onload = () => {
     });
   });
   document.body.addEventListener('keydown', (e) => {
-    console.log("Prueba 2")
     actors.forEach((actor) => {
       if (actor.keyboard_event_up) {
         actor.keyboard_event_up(e.key);

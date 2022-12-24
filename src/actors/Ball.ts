@@ -2,11 +2,12 @@ import _ from "lodash";
 import { Actor, IActor } from "./Actor";
 import { Point } from "../types/Point";
 import { angleToRad } from "../utils/angleToRad";
-import { canvasWidth, canvasHeight } from "../utils/constantes";
+import {
+  canvasWidth, canvasHeight, ballWidth, ballHeight,
+} from "../utils/constantes";
 import { checkLimits } from "../utils/checkLimits";
 import { Barra } from "./Barra";
 import { Marcador } from "./Marcador";
-import { distance } from "../utils/distance";
 
 const basketBall = require("../assets/bolas/basket.png");
 const futBall = require("../assets/bolas/futbol.png");
@@ -36,10 +37,10 @@ export class Ball extends Actor {
     this.speed = { x: initialPos.x, y: initialPos.y };
     this.origin = { x: initialPos.x, y: initialPos.y };
     this.position = { x: initialPos.x, y: initialPos.y };
-    this.ballWidth = 20;
-    this.ballHeight = 20;
+    this.ballWidth = ballWidth;
+    this.ballHeight = ballHeight;
     this.angleX = 45;
-    this.angleY = -45;
+    this.angleY = 45;
     this.win = false;
     this.winner = "";
     this.barra1 = barra1;
@@ -63,9 +64,8 @@ export class Ball extends Actor {
     let barra1 = this.barra1.origin;
     let barra2 = this.barra2.origin;
     let myPos = this.origin;
-    let distance1 = distance(myPos.x, barra1.x, myPos.y, barra1.y)
     // Distancia de la bola con respecto a la parte de arriba de las barras
-    // let distance1 = Math.sqrt((myPos.x - barra1.x) ** 2 + (myPos.y - barra1.y) ** 2);
+    let distance1 = Math.sqrt((myPos.x - barra1.x) ** 2 + (myPos.y - barra1.y) ** 2);
     let distance2 = Math.sqrt((myPos.x - barra2.x) ** 2 + (myPos.y - barra2.y) ** 2);
     // Distancia de la bola con respecto al medio de la barra
     let distance3 = Math.sqrt((myPos.x - barra1.x) ** 2 + (myPos.y - barra1.y - 60) ** 2);
@@ -74,13 +74,14 @@ export class Ball extends Actor {
     let distance5 = Math.sqrt((myPos.x - barra1.x) ** 2 + (myPos.y - barra1.y - 120) ** 2);
     let distance6 = Math.sqrt((myPos.x - barra2.x) ** 2 + (myPos.y - barra2.y - 120) ** 2);
     if (distance1 < 30 || distance2 < 30 || distance5 < 30 || distance6 < 30) {
-      this.angleX *= -1.1;
+      this.angleX *= -1.2;
       this.angleY *= -1.1;
     }
     if (distance3 < 30 || distance4 < 30) {
       this.angleX *= -1
       this.angleY *= -1
     }
+    console.log("Distancia3: ", distance3);
     // NOTE: La velocidad depende del ángulo a un ángulo más grande mayor velocidad
     if (this.win !== true) {
       let newPos = {
