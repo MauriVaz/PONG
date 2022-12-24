@@ -2,7 +2,7 @@
 
 Link al videojuego: https://maurivaz.github.io/PONG/
 
-<img src="/public/img/Pong.png">
+![Imagen de archivo](/public/img/PONG.png)
 
 ## Tecnologías utilizadas
 
@@ -39,8 +39,8 @@ cd PONG
 Para acabar hace falta instalar las dependencias del proyecto y ejecutarlo para eso será necesario ejecutar los siguientes comandos
 
 ```
-npm install
-npm run dev
+yarn install
+yarn run dev
 ```
 
 ## Requisitos mínimos
