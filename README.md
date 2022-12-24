@@ -1,6 +1,6 @@
 # PONG
 
-Link al videojuego: https://maurivaz.github.io/PONG/
+Link al videojuego: https://pong-maurivaz.vercel.app/
 
 ![Imagen de archivo](/public/img/PONG.png)
 

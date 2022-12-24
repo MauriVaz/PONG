@@ -6,6 +6,7 @@ import { canvasWidth, canvasHeight } from "../utils/constantes";
 import { checkLimits } from "../utils/checkLimits";
 import { Barra } from "./Barra";
 import { Marcador } from "./Marcador";
+import { distance } from "../utils/distance";
 
 const basketBall = require("../assets/bolas/basket.png");
 const futBall = require("../assets/bolas/futbol.png");
@@ -62,8 +63,9 @@ export class Ball extends Actor {
     let barra1 = this.barra1.origin;
     let barra2 = this.barra2.origin;
     let myPos = this.origin;
+    let distance1 = distance(myPos.x, barra1.x, myPos.y, barra1.y)
     // Distancia de la bola con respecto a la parte de arriba de las barras
-    let distance1 = Math.sqrt((myPos.x - barra1.x) ** 2 + (myPos.y - barra1.y) ** 2);
+    // let distance1 = Math.sqrt((myPos.x - barra1.x) ** 2 + (myPos.y - barra1.y) ** 2);
     let distance2 = Math.sqrt((myPos.x - barra2.x) ** 2 + (myPos.y - barra2.y) ** 2);
     // Distancia de la bola con respecto al medio de la barra
     let distance3 = Math.sqrt((myPos.x - barra1.x) ** 2 + (myPos.y - barra1.y - 60) ** 2);
