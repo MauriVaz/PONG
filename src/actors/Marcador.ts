@@ -16,6 +16,6 @@ export class Marcador extends Actor {
   draw(delta: number, ctx: CanvasRenderingContext2D) {
     ctx.font = '25px Arial';
     ctx.fillStyle = 'white';
-    ctx.fillText(`Marcador: ${this.p1}-${this.p2}`, this.position.x, this.position.y);
+    ctx.fillText(`Scoreboard: ${this.p1}-${this.p2}`, this.position.x, this.position.y);
   }
 }
