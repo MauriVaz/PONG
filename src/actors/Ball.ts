@@ -25,12 +25,14 @@ export class Ball extends Actor {
   image: HTMLImageElement;
   barra1: Barra;
   barra2: Barra;
+
   marcador: Marcador;
   constructor(
     initialPos: Point,
     barra1: Barra,
     barra2: Barra,
     marcador: Marcador,
+
   ) {
     let random = _.random(0, 2);
     super(initialPos);
@@ -39,8 +41,8 @@ export class Ball extends Actor {
     this.position = { x: initialPos.x, y: initialPos.y };
     this.ballWidth = ballWidth;
     this.ballHeight = ballHeight;
-    this.angleX = 45;
-    this.angleY = 45;
+    this.angleX = 60;
+    this.angleY = 60;
     this.win = false;
     this.winner = "";
     this.barra1 = barra1;
@@ -81,7 +83,6 @@ export class Ball extends Actor {
       this.angleX *= -1
       this.angleY *= -1
     }
-    console.log("Distancia3: ", distance3);
     // NOTE: La velocidad depende del ángulo a un ángulo más grande mayor velocidad
     if (this.win !== true) {
       let newPos = {
