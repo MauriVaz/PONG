@@ -41,8 +41,8 @@ export class Ball extends Actor {
     this.position = { x: initialPos.x, y: initialPos.y };
     this.ballWidth = ballWidth;
     this.ballHeight = ballHeight;
-    this.angleX = 60;
-    this.angleY = 60;
+    this.angleX = 65;
+    this.angleY = -60;
     this.win = false;
     this.winner = "";
     this.barra1 = barra1;
@@ -76,8 +76,8 @@ export class Ball extends Actor {
     let distance5 = Math.sqrt((myPos.x - barra1.x) ** 2 + (myPos.y - barra1.y - 120) ** 2);
     let distance6 = Math.sqrt((myPos.x - barra2.x) ** 2 + (myPos.y - barra2.y - 120) ** 2);
     if (distance1 < 30 || distance2 < 30 || distance5 < 30 || distance6 < 30) {
-      this.angleX *= -1.2;
-      this.angleY *= -1.1;
+      this.angleX *= -1.0;
+      this.angleY *= -1.3;
     }
     if (distance3 < 30 || distance4 < 30) {
       this.angleX *= -1

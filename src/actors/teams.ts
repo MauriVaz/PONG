@@ -4,15 +4,16 @@ import { canvasWidth, canvasHeight } from '../utils/constantes'
 
 const barcelona = require("../assets/teams/barcelona.png");
 const madrid = require("../assets/teams/madrid.png");
+
 export class Teams extends Actor {
   image1: HTMLImageElement;
   image2: HTMLImageElement;
   constructor(initialPos: Point) {
     super(initialPos);
     this.image1 = new Image();
-    this.image1.src=barcelona;
-    this.image2=new Image()
-    this.image2.src=madrid
+    this.image1.src = barcelona;
+    this.image2 = new Image();
+    this.image2.src = madrid;
   }
   update() {}
   keyboard_event() {}
